@@ -1,4 +1,4 @@
-***class Heroes:
+class Heroes:
     ana = 1
     bastion = 2
     dva = 3
@@ -6,7 +6,7 @@
     hanzo = 5
     junkrat = 6
     lucio = 7
-**    mccree = 8
+    mccree = 8
     mei = 9
     mercy = 10
     pharah = 11
@@ -43,4 +43,4 @@ class Maps:
     watchpoint_gibraltar = 14
     wp_gibraltar = 14
     ecopoint_antarctica = 15
-    antarctica = 15-
+    antarctica = 15

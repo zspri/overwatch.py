@@ -263,6 +263,8 @@ This will print *`Biotic Rifle is one of Ana's abilities.`*
 
 # Utilities
 
+   All of these methods are found in `overwatchpy.Utils`
+
 | Method                     | Description                                    | Returns            |
 | -------------------------- | ---------------------------------------------- | ------------------ |
 | get_abilities_from_json(a) | Gets a `list` of `Ability` from a JSON source. | `list`             |

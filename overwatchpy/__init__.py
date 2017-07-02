@@ -1,6 +1,6 @@
 ######################################
 # Overwatch.py                       #
-# A basic wrapper
+# A basic wrapper for the OWAPI      #
 # Version 0.1.0                      #
 # Copyright (C) Nanomotion 2017      #
 # See the LICENSE file for more info #
@@ -13,7 +13,8 @@ __copyright__ = 'Copyright (C) 2017 Nanomotion'
 __version__ = '0.1.0'
 
 from .objects import *
-from . import core, Data
+from .core import OWAPI
+from . import data, utils
 from .errors import errors
 
 import logging
