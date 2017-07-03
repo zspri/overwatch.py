@@ -14,7 +14,8 @@ __version__ = '0.1.0'
 
 from .objects import *
 from .core import OWAPI
-from . import data, utils
+from .data import *
+from . import utils
 from .errors import errors
 
 import logging

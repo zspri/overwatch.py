@@ -93,6 +93,7 @@ class OWAPI:
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/game-mode/{1}".format(self.api_version, str(id)), self.headers, self.user_agent)
 
         gm = GameMode(r['id'], r['name'])
+        return gm
 
     def get_all_gamemodes(self):
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/game-mode/?limit=999".format(self.api_version), self.headers, self.user_agent)
@@ -104,12 +105,8 @@ class OWAPI:
 
     def get_hero(self, id):
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/hero/{1}".format(self.api_version, str(id)), self.headers, self.user_agent)
-
-        sub_roles = []
-        for sr in r['sub_roles']:
-            sub_roles.append(Role(sr['id'], sr['name']))
-        he = Hero(r['id'], r['name'], r['description'], r['health'], r['armour'], r['shield'], r['real_name'], r['age'], r['height'], r['affiliation'], r['base_of_operations'], r['difficulty'], Role(r['role']['id'], r['role']['name']), sub_roles, overwatchpy.utils.get_abilities_from_json(r['abilities']), overwatchpy.utils.get_rewards_from_json(r['rewards']))
-        return he
+        h =  overwatchpy.utils.get_hero_from_json(r)
+        return h
 
     def get_all_heroes(self):
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/hero/?limit=999".format(self.api_version), self.headers, self.user_agent)
@@ -138,7 +135,6 @@ class OWAPI:
 
     def get_platform(self, id):
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/platform/{1}".format(self.api_version, str(id)), self.headers, self.user_agent)
-
         return Platform(r['id'], r['name'])
 
     def get_all_platforms(self):
@@ -154,6 +150,7 @@ class OWAPI:
 
         h = Hero(r['hero']['id'], r['hero']['name'], None, None, None, None, None, None, None, None, None, None, None, None, None, None)
         re = Reward(r['id'], r['name'], r['cost']['value'], RewardType(r['type']['id'], r['type']['name']), h, r['quality']['name'], r['event'])
+        return re
 
     def get_all_rewards(self):
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/reward/?limit=9999".format(self.api_version), self.headers, self.user_agent)

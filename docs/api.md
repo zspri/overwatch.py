@@ -263,7 +263,7 @@ This will print *`Biotic Rifle is one of Ana's abilities.`*
 
 # Utilities
 
-   All of these methods are found in `overwatchpy.Utils`
+   All of these methods are found in the `overwatchpy.utils` module.
 
 | Method                     | Description                                    | Returns            |
 | -------------------------- | ---------------------------------------------- | ------------------ |
