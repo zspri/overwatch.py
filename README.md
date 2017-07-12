@@ -8,7 +8,7 @@ A Python wrapper for https://overwatch-api.net
 Use pip:
 
 ```
-pip install -U overwatchpy
+pip install https://github.com/Nanomotion/overwatch.py.git
 ```
 
 Source code:
@@ -33,5 +33,3 @@ This will return: `Biotic Rifle is one of Ana's abilities.`
  - urllib3
 
 Read the [Documentation](http://nanomotion.xyz/overwatch.py)
-
-Join the [Discord](https://discord.gg/Tz6ztvX)
