@@ -60,7 +60,7 @@ class Hero:
         self.rewards = rewards
 
 class Map:
-    def __init__(self, id, name, location, mode, stages, event = None):
+    def __init__(self, id, name, location, mode, stages, event):
         self.id = id
         self.name = name
         self.location = location
@@ -85,11 +85,11 @@ class Platform:
         self.name = name
 
 class Reward:
-    def __init__(self, id, name, cost, type, hero, quality, event = None):
+    def __init__(self, id, name, cost, _type, hero, quality, event = None):
         self.id = id
         self.name = name
         self.cost = cost
-        self.type = type
+        self.type = _type
         self.hero = hero
         self.quality = quality
         self.event = event

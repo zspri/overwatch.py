@@ -3,6 +3,7 @@ import requests.exceptions
 from overwatchpy.objects import *
 import overwatchpy.utils
 import overwatchpy.errors
+import overwatchpy
 import logging
 import traceback
 
@@ -77,8 +78,13 @@ class OWAPI:
 
     def get_event(self, id):
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/event/{1}".format(self.api_version, str(id)), self.headers, self.user_agent)
-
-        ev = Event(r['id'], r['name'], r['start_date'], r['end_date'], overwatchpy.utils.get_maps_from_json(r['maps']), overwatchpy.utils.get_rewards_from_json(r['rewards']))
+        maps = []
+        for mp in r['maps']:
+            maps.append(Map(mp['id'], mp['name'], None, None, None, None))
+        rewards = []
+        for re in r['rewards']:
+            rewards.append(Reward(re['id'], re['name'], None, None, None, None, None))
+        ev = Event(r['id'], r['name'], r['start_date'], r['end_date'], maps, rewards)
         return ev
 
     def get_all_events(self):
@@ -118,12 +124,12 @@ class OWAPI:
 
     def get_map(self, id):
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/map/{1}".format(self.api_version, str(id)), self.headers, self.user_agent)
-        ma = r.json()
         stages = []
-        for s in ma['stages']:
+        for s in r['stages']:
             stages.append(MapStage(s['id'], s['name']))
-        mp = object.Map(ma['id'], ma['name'], ma['location'], BrawlType(ma['mode']['id']), stages, ma['event'])
-        return mp
+        logging.debug(str(r))
+        _map = Map(r['id'], r['name'], r['location'], BrawlType(r['mode']['id'], r['mode']['name']), stages, r['event'])
+        return _map
 
     def get_all_maps(self):
         r = overwatchpy.utils.get("https://overwatch-api.net/api/{0}/map/?limit=999".format(self.api_version), self.headers, self.user_agent)

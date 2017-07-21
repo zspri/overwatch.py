@@ -33,7 +33,7 @@ class Maps:
     hollywood = 5
     ilios = 6
     kings_row = 7
-    lijang_tower = 8
+    lijiang_tower = 8
     route_66 = 9
     numbani = 10
     nepal = 11
