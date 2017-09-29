@@ -2,6 +2,8 @@
 
 A Python wrapper for https://overwatch-api.net
 
+> This project is deprecated and should no longer be used, as the [Overwatch API](https://github.com/jamesmcfadden/overwatch-api) is no longer being maintained.
+
 > NOTE: Overwatch.py is in early-Alpha and all features may not work as intended.
 
 ## How to Install
