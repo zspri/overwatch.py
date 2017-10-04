@@ -10,7 +10,7 @@ A Python wrapper for https://overwatch-api.net
 Use pip:
 
 ```
-pip install https://github.com/Nanomotion/overwatch.py.git
+pip install git+https://github.com/Nanomotion/overwatch.py.git
 ```
 
 Source code:
